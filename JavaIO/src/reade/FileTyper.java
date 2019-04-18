@@ -2,9 +2,7 @@ package reade;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.StreamCorruptedException;
 
-import java.io.*;
 //import com.macfaq.io.*;
 
 public class FileTyper {

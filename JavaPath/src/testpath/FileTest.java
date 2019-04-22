@@ -1,21 +1,30 @@
 package testpath;
 
+import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class FileTest {
 
 	public static void main(String[] args) {
-		Path inputPath;
-		if (args.length < 1) {
-			System.out.println("su dung tap tin FileTest");
-			inputPath =  Paths.get("src/testpath/FileTest.java");
-		} else {
-			inputPath = Paths.get(args[0]);
-		}
-		Path fullPath = inputPath.toAbsolutePath();
+		try {
+			String strDirectoy = "test";
+			String strManyDirectories = "dir1/dir2/dir3";
 
-		System.out.println("Full path: " + fullPath);
+			// Create one directory
+			boolean success = (new File(strDirectoy)).mkdir();
+			if (success) {
+				System.out.println("Directory: " + strDirectoy + " created");
+			}
+			// Create multiple directories
+			success = (new File(strManyDirectories)).mkdirs();
+			if (success) {
+				System.out.println("Directories: " + strManyDirectories + " created");
+			}
+
+		} catch (Exception e) {// Catch exception if any
+			System.err.println("Error: " + e.getMessage());
+		}
 	}
 
 }
